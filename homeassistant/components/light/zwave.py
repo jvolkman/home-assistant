@@ -85,6 +85,8 @@ class ZwaveDimmer(zwave.ZWaveDeviceEntity, Light):
         self._refresh_value = refresh
         self._zw098 = None
 
+        self.values.primary.set_change_verified(True)
+
         # Enable appropriate workaround flags for our device
         # Make sure that we have values for the key before converting to int
         if (self.node.manufacturer_id.strip() and
